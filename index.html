@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Image Captioning Example</h1>
+    <p>Enter url below</p>
+    <input type="text" id="url" placeholder="Enter image url" />
+    <button id="captionBtn">Get Image Caption</button>
+    <p>Image Result: </p>
+    <img id="image" src="" alt="" />
+    <p>Caption:</p>
+    <p id="caption"></p>
+</body>
+<script>
+    const url = document.getElementById('url');
+    const captionBtn = document.getElementById('captionBtn');
+    const caption = document.getElementById('caption');
+
+    captionBtn.addEventListener('click', () => {
+        fetch('http://localhost:3000/get-caption?imageUrl=' + url.value)
+            .then(response => response.json())
+            .then(data => {
+                caption.innerHTML = data.caption;
+                document.getElementById('image').src = url.value;
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    })
+</script>
+
+</html>
