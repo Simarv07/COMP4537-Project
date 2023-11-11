@@ -10,3 +10,5 @@ To use this application locally, do the following steps
 6. Run 'node app.js' and open index.html
 
 Sample Image url: https://images.unsplash.com/photo-1575936123452-b67c3203c357?q=80&w=1000
+
+Note: Avoid any images that are too large
